@@ -1,4 +1,8 @@
-setwd('C:/Users/chaiy/Documents/R/Project/tutorial_viirs_part1/scripts')
+setwd('C:/Users/chaiy/Documents/R/Project/tutorial_viirs/scripts')
+
+#setwd('C:/Users/Administrator/Documents/R/Project/tutorial_viirs/scripts/')
+
+#install.packages("ggmap", dependencies = TRUE)
 
 library(doParallel)
 library(foreach)
@@ -48,7 +52,7 @@ msa_pop$NAME <- as.character(msa_pop$NAME)
 #             "Las Vegas, NV", "Louisville, KY","Milwaukee, WI","Albuquerque, NM",
 #             "Tucson, AZ","Fresno, CA","Sacramento, CA")
 
-cities <- c("New York, NY", "Los Angeles, CA")
+cities <- c("New York, NY", "Los Angeles, CA","Chicago, IL", "Houston, TX")
 
 ##Set graph layout
 par(mai=c(0,0,0,0),mfrow = c(7,5),bg='#001a4d', bty='n')
