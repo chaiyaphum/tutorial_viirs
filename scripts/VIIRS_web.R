@@ -1,6 +1,6 @@
-setwd('C:/Users/chaiy/Documents/R/Project/tutorial_viirs/scripts')
+#setwd('C:/Users/chaiy/Documents/R/Project/tutorial_viirs/scripts')
 
-#setwd('C:/Users/Administrator/Documents/R/Project/tutorial_viirs/scripts/')
+setwd('C:/Users/Administrator/Documents/R/Project/tutorial_viirs/scripts/')
 
 #install.packages("ggmap", dependencies = TRUE)
 
@@ -43,7 +43,7 @@ msa_pop <- msa_pop[order(msa_pop$POPESTIMATE2014),]
 msa_pop$NAME <- as.character(msa_pop$NAME) 
 
 # cities <- c("New York, NY", "Los Angeles, CA","Chicago, IL", "Houston, TX",
-#             "Philadelphia, PA", "Phoenix, AZ", "San Antonio, TX", "San Diego, CA",     
+#             "Philadelphia, PA", "Phoenix, AZ", "San Antonio, TX", "San Diego, CA",
 #             "Dallas, TX", "San Jose, CA", "Austin, TX", "Jacksonville, FL",
 #             "San Francisco, CA", "Indianapolis, IN", "Columbus, OH", "Fort Worth, TX",
 #             "Charlotte, NC", "Detroit, MI", "El Paso, TX", "Seattle, WA",
@@ -52,7 +52,10 @@ msa_pop$NAME <- as.character(msa_pop$NAME)
 #             "Las Vegas, NV", "Louisville, KY","Milwaukee, WI","Albuquerque, NM",
 #             "Tucson, AZ","Fresno, CA","Sacramento, CA")
 
-cities <- c("New York, NY", "Los Angeles, CA","Chicago, IL", "Houston, TX")
+
+#cities <- c("New York, NY", "Los Angeles, CA","Chicago, IL", "Houston, TX")
+cities <- c("Bangkok, BKK")
+
 
 ##Set graph layout
 par(mai=c(0,0,0,0),mfrow = c(7,5),bg='#001a4d', bty='n')
@@ -60,8 +63,9 @@ par(mai=c(0,0,0,0),mfrow = c(7,5),bg='#001a4d', bty='n')
 ##Loop through data
 coords <- data.frame() ##place holder
 
+
 for(i in 1:length(cities)){
-  
+  #Sys.sleep(10)
   ##Coords
   temp_coord <- geocode(cities[i], source = "google")
   coords <- rbind(coords,temp_coord)
@@ -88,6 +92,8 @@ for(i in 1:length(cities)){
 }
 
 
+
+Sys.sleep(1)
 
 masq <- function(shp,rast,i){
   
